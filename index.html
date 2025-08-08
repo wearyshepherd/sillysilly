@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaya vs Marga Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff99cc, #ff66b2);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .player-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #ff66b2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .player-btn:hover, .selected {
+            background: #ff3385;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px white;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            margin: 20px auto;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cell:hover {
+            transform: scale(1.05);
+        }
+        #winner-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(255, 0, 127, 0.8);
+            text-align: center;
+            display: none;
+            transition: transform 0.3s ease-in-out;
+        }
+        #winner-popup img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px rgba(255, 0, 127, 1);
+        }
+        #winner-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3385;
+            margin-top: 15px;
+        }
+        .turn-indicator {
+            font-size: 18px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Player 1</h1>
+    <div id="player1-selection">
+        <button class="player-btn" data-character="Zaya">Zaya</button>
+        <button class="player-btn" data-character="Shan">Shan</button>
+        <button class="player-btn" data-character="Danny">Danny</button>
+    </div>
+
+    <h1>Select Player 2</h1>
+    <div id="player2-selection">
+        <button class="player-btn" data-character="Zaya">Zaya</button>
+        <button class="player-btn" data-character="Shan">Shan</button>
+        <button class="player-btn" data-character="Danny">Danny</button>
+    </div>
+
+    <h1>Tic Tac Toe</h1>
+    <div class="turn-indicator" id="status">Select players to start</div>
+    <div class="board" id="board"></div>
+    <button id="reset">Restart Game</button>
+
+    <div id="winner-popup">
+        <img id="winner-avatar" src="" alt="Winner">
+        <p id="winner-text"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
